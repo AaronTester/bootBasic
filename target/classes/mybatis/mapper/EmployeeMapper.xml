@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaron.mapper.EmployeeMapper">
+    <resultMap id="empResultMap" type="com.aaron.pojo.Employee">
+        <id property="id" column="id" />
+        <result property="empName" column="empName" />
+        <result property="email" column="email" />
+        <result property="address" column="address" />
+        <result property="gender" column="gender" />
+        <result property="empName" column="sname" />
+        <association property="department" javaType="com.aaron.pojo.Department">
+            <id property="id" column="dId"/>
+            <result property="deptName" column="deptName"/>
+        </association>
+    </resultMap>
+
+    <select id="queryEmpList" resultMap="empResultMap">
+        select e.id,e.empName,e.address,e.gender,e.empName,d.id dId,d.deptName deptName
+            from tbl_employee e left join tbl_department d
+                on e.deptId = d.id
+    </select>
+
+    <select id="queryEmp" parameterType="integer" resultMap="empResultMap">
+        select e.id,e.empName,e.address,e.gender,e.empName,d.id dId,d.deptName deptName
+            from tbl_employee e left join tbl_department d
+                on e.deptId = d.id where e.id = #{id}
+    </select>
+    <insert id="addEmp" parameterType="com.aaron.pojo.Employee">
+        insert into tbl_employee(empName,email,address,gender,deptId)
+            values (#{empName},#{email},#{address},#{gender},#{department.id});
+    </insert>
+
+    <delete id="delEmp" parameterType="int">
+        delete from tbl_employee where id = #{id}
+    </delete>
+
+    <insert id="insertBatch" parameterType="java.util.List" >
+        insert into tbl_employee(empName,email,address,gender,deptId)
+        values
+        <foreach collection="list" item="item" index="index"  separator=",">
+            <trim prefix=" (" suffix=")" suffixOverrides="," >
+                #{item.empName},
+                #{item.email},
+                #{item.address},
+                #{item.gender},
+                #{item.department.id}
+            </trim>
+        </foreach>
+
+    </insert>
+    <sql id="Base_Column_Inserts">
+       id,empName,email,address,gender,deptId
+    </sql>
+</mapper>
