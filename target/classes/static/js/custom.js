@@ -45,7 +45,21 @@ $(function () {
   new Chart(document.getElementById("area_chart").getContext("2d"), getChartJs('area'));
   new Chart(document.getElementById("donut_chart").getContext("2d"), getChartJs('donut'));
 });
-
+$(function(){
+  jQuery.ajax({
+    cache: true,
+    type: "POST",
+    url:'menulist',
+    dataType:"json",
+    success: function(data) {
+      var html="";
+      for(var i=0;i<data.length;i++){
+        html+= '<li><a href="/BootBasic/'+data[i].menuUrl+'"><i class="fa fa-table purple_color2"></i> <span>'+data[i].menuName+'</span></a></li>';
+      }
+      $("#menuId").append(html);
+    }
+  });
+})
 function getChartJs(type) {
   var config = null;
 

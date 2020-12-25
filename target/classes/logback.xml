@@ -18,22 +18,22 @@
     <contextName>fanxlxs</contextName>
 
     <!--文件夹在当前项目磁盘根目录-->
-    <property name="LOG_PATH" value="E:/Logs/nmys"/>
+    <property name="LOG_PATH" value="E:/Logs/BootBasic"/>
     <!--设置系统日志目录-->
-    <property name="APPDIR" value="logs"/>
+    <property name="APPDIR" value="log"/>
 
     <!--  日志记录器，日期滚动记录
             ERROR 级别
      -->
     <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 正在记录的日志文件的路径及文件名 -->
-        <file>${LOG_PATH}/${APPDIR}/model_repatile.log</file>
+        <file>${LOG_PATH}/${APPDIR}/bootbasic.log</file>
         <!-- 日志记录器的滚动策略，按日期，按大小记录 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 归档的日志文件的路径，例如今天是1992-11-06日志，当前写的日志文件路径为file节点指定，
             可以将此文件与file指定文件路径设置为不同路径，从而将当前日志文件或归档日志文件置不同的目录。
             而1992-11-06的日志文件在由fileNamePattern指定。%d{yyyy-MM-dd}指定日期格式，%i指定索引 -->
-            <fileNamePattern>${LOG_PATH}/${APPDIR}/error/model_repatile-error-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/${APPDIR}/error/bootbasic-error-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 除按日志记录之外，还配置了日志文件不能超过10MB，若超过10MB，日志文件会以索引0开始，
             命名日志文件，例如log-error-1992-11-06.0.log -->
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -61,13 +61,13 @@
      -->
     <appender name="WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 正在记录的日志文件的路径及文件名 -->
-        <file>${LOG_PATH}/${APPDIR}/model_repatile_warn.log</file>
+        <file>${LOG_PATH}/${APPDIR}/bootbasic_warn.log</file>
         <!-- 日志记录器的滚动策略，按日期，按大小记录 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 归档的日志文件的路径，例如今天1992-11-06日志，当前写的日志文件路径为file节点指定，
             可以将此文件与file指定文件路径设置为不同路径，从而将当前日志文件或归档日志文件置不同的目录。
             而1992-11-06的日志文件在由fileNamePattern指定。%d{yyyy-MM-dd}指定日期格式，%i指定索引 -->
-            <fileNamePattern>${LOG_PATH}/${APPDIR}/warn/model_repatile-warn-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/${APPDIR}/warn/bootbasic-warn-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 除按日志记录之外，还配置了日志文件不能超过10MB，若超过10MB，日志文件会以索引0开始，
             命名日志文件，例如log-warn-1992-11-06.0.log -->
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -95,13 +95,13 @@
     -->
     <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 正在记录的日志文件的路径及文件名 -->
-        <file>${LOG_PATH}/${APPDIR}/model_repatile_ginfo.log</file>
+        <file>${LOG_PATH}/${APPDIR}/bootbasic_ginfo.log</file>
         <!-- 日志记录器的滚动策略，按日期，按大小记录 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 归档的日志文件的路径，例如今天是1992-11-06日志，当前写的日志文件路径为file节点指定，
             可以将此文件与file指定文件路径设置为不同路径，从而将当前日志文件或归档日志文件置不同的目录。
             而1992-11-06的日志文件在由fileNamePattern指定。%d{yyyy-MM-dd}指定日期格式，%i指定索引 -->
-            <fileNamePattern>${LOG_PATH}/${APPDIR}/info/model_repatile-info-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/${APPDIR}/info/bootbasic-info-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 除按日志记录之外，还配置了日志文件不能超过10MB，若超过10MB，日志文件会以索引0开始，
             命名日志文件，例如log-info-1992-11-06.0.log -->
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -129,13 +129,13 @@
     -->
     <appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 正在记录的日志文件的路径及文件名 -->
-        <file>${LOG_PATH}/${APPDIR}/model_repatile_debug.log</file>
+        <file>${LOG_PATH}/${APPDIR}/bootbasic_debug.log</file>
         <!-- 日志记录器的滚动策略，按日期，按大小记录 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 归档的日志文件的路径，例如今天是1992-11-06日志，当前写的日志文件路径为file节点指定，
             可以将此文件与file指定文件路径设置为不同路径，从而将当前日志文件或归档日志文件置不同的目录。
             而1992-11-06的日志文件在由fileNamePattern指定。%d{yyyy-MM-dd}指定日期格式，%i指定索引 -->
-            <fileNamePattern>${LOG_PATH}/${APPDIR}/debug/model_repatile-debug-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/${APPDIR}/debug/bootbasic-debug-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 除按日志记录之外，还配置了日志文件不能超过10MB，若超过10MB，日志文件会以索引0开始，
             命名日志文件，例如log-debug-1992-11-06.0.log -->
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">

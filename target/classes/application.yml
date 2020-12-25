@@ -3,6 +3,8 @@ server:
   servlet:
     context-path: /BootBasic
 spring:
+#  profiles:
+#    active: dev
   thymeleaf:
     cache: false
   mvc:
@@ -13,7 +15,7 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mybatis?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/bootbasic?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     type: com.alibaba.druid.pool.DruidDataSource
     #    schema:
     #      - classpath:department.sql

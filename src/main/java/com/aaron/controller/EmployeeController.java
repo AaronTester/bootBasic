@@ -1,9 +1,11 @@
 package com.aaron.controller;
 
-import com.aaron.mapper.DepartmentMapper;
-import com.aaron.mapper.EmployeeMapper;
 import com.aaron.pojo.Department;
 import com.aaron.pojo.Employee;
+import com.aaron.service.DepartmentService;
+import com.aaron.service.EmployeeService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,39 +26,41 @@ import java.util.List;
  * @Date 2020/12/18
  */
 @Controller
+@ApiModel("用户处理类")
+@Api("用户处理类")
 public class EmployeeController {
 
     @Autowired
-    private EmployeeMapper employeeMapper;
+    private EmployeeService employeeService;
 
     @Autowired
-    private DepartmentMapper departmentMapper;
+    private DepartmentService departmentService;
 
     @RequestMapping("/emps")
     public String queryUserList(Model model) {
-        Collection<Employee> employees = employeeMapper.queryEmpList();
+        Collection<Employee> employees = employeeService.queryEmpList();
         model.addAttribute("employees",new ArrayList<Employee>(employees));
         return "emppage/empslist";
     }
 
     @GetMapping("/emp")
     public String toAddEmp(Model model) {
-        List<Department> deptList = departmentMapper.getDeptList();
+        List<Department> deptList = departmentService.getDeptList();
         model.addAttribute("deptList", deptList);
         return "emppage/addEmp";
     }
 
     @PostMapping("/emp")
     public String addEmp(Employee employee) {
-        employeeMapper.addEmp(employee);
+        employeeService.addEmp(employee);
         return "redirect:/emps";
     }
 
     @GetMapping("/emp/{id}")
     public String toUpdateEmp(@PathVariable("id")Integer id,Model model) {
-        Employee employee = employeeMapper.queryEmp(id);
+        Employee employee = employeeService.queryEmp(id);
         model.addAttribute("employee", employee);
-        List<Department> deptList = departmentMapper.getDeptList();
+        List<Department> deptList = departmentService.getDeptList();
         model.addAttribute("deptList", deptList);
         return "emppage/updateEmp";
     }
@@ -64,13 +68,13 @@ public class EmployeeController {
     @PostMapping("/emp/{id}")
     public String updateEmp(@PathVariable("id") Integer id, Employee employee) {
         System.out.println(employee);
-        employeeMapper.addEmp(employee);
+        employeeService.addEmp(employee);
         return "redirect:/emps";
     }
 
     @GetMapping("/delemp/{id}")
     public String delEmp(@PathVariable("id") Integer id) {
-        int result = employeeMapper.delEmp(id);
+        int result = employeeService.delEmp(id);
         return "redirect:/emps";
     }
 }

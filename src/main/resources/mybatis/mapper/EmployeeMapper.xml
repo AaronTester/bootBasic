@@ -5,31 +5,58 @@
 <mapper namespace="com.aaron.mapper.EmployeeMapper">
     <resultMap id="empResultMap" type="com.aaron.pojo.Employee">
         <id property="id" column="id" />
+        <result property="empId" column="empId" />
+        <result property="password" column="password" />
         <result property="empName" column="empName" />
-        <result property="email" column="email" />
-        <result property="address" column="address" />
         <result property="gender" column="gender" />
-        <result property="empName" column="sname" />
+        <result property="email" column="email" />
+        <result property="wchat" column="wchat" />
+        <result property="phone" column="phone" />
+        <result property="address" column="address" />
         <association property="department" javaType="com.aaron.pojo.Department">
             <id property="id" column="dId"/>
             <result property="deptName" column="deptName"/>
+            <result property="deptCode" column="deptCode"/>
+            <result property="deptParentId" column="deptParentId"/>
+            <result property="deptDesc" column="deptDesc"/>
         </association>
     </resultMap>
 
+    <select id="queryEmpByNameAndPwd" resultMap="empResultMap" parameterType="com.aaron.pojo.Employee">
+        select e.id,e.empId,e.password,e.empName,e.gender,e.wchat,e.phone,e.address,
+            d.id dId,d.dept_name deptName,d.dept_code deptCode,d.dept_parentId deptParentId,d.dept_desc deptDesc
+            from tbl_employee e left join tbl_department d
+                on e.deptId = d.id
+                where e.empId = #{empId} and e.password = #{password}
+    </select>
     <select id="queryEmpList" resultMap="empResultMap">
-        select e.id,e.empName,e.address,e.gender,e.empName,d.id dId,d.deptName deptName
+        select e.id,e.empId,e.password,e.empName,e.gender,e.wchat,e.phone,e.address,
+        d.id dId,d.dept_name deptName,d.dept_code deptCode,d.dept_parentId deptParentId,d.dept_desc deptDesc
             from tbl_employee e left join tbl_department d
                 on e.deptId = d.id
     </select>
 
     <select id="queryEmp" parameterType="integer" resultMap="empResultMap">
-        select e.id,e.empName,e.address,e.gender,e.empName,d.id dId,d.deptName deptName
+        select e.id,e.empId,e.password,e.empName,e.gender,e.wchat,e.phone,e.address,
+        d.id dId,d.dept_name deptName,d.dept_code deptCode,d.dept_parentId deptParentId,d.dept_desc deptDesc
             from tbl_employee e left join tbl_department d
                 on e.deptId = d.id where e.id = #{id}
     </select>
+    <select id="getUserByName" parameterType="string" resultMap="empResultMap">
+        select e.id,e.empId,e.password,e.empName,e.gender,e.wchat,e.phone,e.address,
+            d.id dId,d.dept_name deptName,d.dept_code deptCode,d.dept_parentId deptParentId,d.dept_desc deptDesc
+        from tbl_employee e left join tbl_department d
+            on e.deptId = d.id where e.empName = #{empName}
+    </select>
+    <select id="getEmployeeByEmpId"  parameterType="string"  resultMap="empResultMap">
+        select e.id,e.empId,e.password,e.empName,e.gender,e.wchat,e.phone,e.address,
+            d.id dId,d.dept_name deptName,d.dept_code deptCode,d.dept_parentId deptParentId,d.dept_desc deptDesc
+        from tbl_employee e left join tbl_department d
+            on e.deptId = d.id where e.empId = #{empId}
+    </select>
     <insert id="addEmp" parameterType="com.aaron.pojo.Employee">
-        insert into tbl_employee(empName,email,address,gender,deptId)
-            values (#{empName},#{email},#{address},#{gender},#{department.id});
+        insert into tbl_employee(e.empId,e.password,empName,wchat,phone,email,address,gender,deptId)
+            values (#{empId},#{password},#{empName},#{wchat},#{phone},#{email},#{address},#{gender},#{department.id});
     </insert>
 
     <delete id="delEmp" parameterType="int">
@@ -37,11 +64,15 @@
     </delete>
 
     <insert id="insertBatch" parameterType="java.util.List" >
-        insert into tbl_employee(empName,email,address,gender,deptId)
+        insert into tbl_employee(empId,password,empName,wchat,phone,email,address,gender,deptId)
         values
         <foreach collection="list" item="item" index="index"  separator=",">
             <trim prefix=" (" suffix=")" suffixOverrides="," >
+                #{item.empId},
+                #{item.password},
                 #{item.empName},
+                #{item.wchat},
+                #{item.phone},
                 #{item.email},
                 #{item.address},
                 #{item.gender},
@@ -51,6 +82,6 @@
 
     </insert>
     <sql id="Base_Column_Inserts">
-       id,empName,email,address,gender,deptId
+       id,e.empId,e.password,empName,email,address,gender,deptId
     </sql>
 </mapper>

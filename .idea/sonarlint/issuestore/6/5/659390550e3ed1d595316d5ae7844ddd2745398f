@@ -1,0 +1,9 @@
+
+c
+java:S1192*"FDefine a constant instead of duplicating this literal "login" 5 times.(Íı‡Ç8½ÒÓƒè.
+^
+java:S1128"<Remove this unused import 'com.aaron.mapper.EmployeeMapper'.(óöİÙÿÿÿÿÿ8ÇŒè.
+s
+java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿ8œ¹Ïè.
+d
+java:S1192-"GDefine a constant instead of duplicating this literal "errmsg" 4 times.(Îİ•ô8ØÎÖƒè.

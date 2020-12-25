@@ -1,0 +1,28 @@
+
+n
+java:S1128"LRemove this unused import 'org.springframework.scheduling.annotation.Async'.(İë€Ûúÿÿÿÿ8¨ñÕè.
+m
+java:S1128
+"KRemove this unused import 'org.apache.shiro.authc.UnknownAccountException'.(‚£¾ıÿÿÿÿ8„¦‚Õè.
+]
+java:S1128"ARemove this unused import 'org.springframework.util.StringUtils'.(Ğôÿ8„¦‚Õè.
+U	java:S1060"9Replace this use of System.out or System.err by a logger.(ò¤µæ8æï…Õè.
+n
+java:S1128"LRemove this unused import 'org.apache.shiro.authz.annotation.RequiresRoles'.(¥¸Ã²øÿÿÿÿ8„¦‚Õè.
+I
+java:S1068%"'Remove this unused "log" private field.(ÓÛŒšøÿÿÿÿ8„¦‚Õè.
+X
+java:S1128";Remove this unused import 'org.apache.shiro.SecurityUtils'.(ı™ß8„¦‚Õè.
+o
+java:S1128"RRemove this unused import 'org.apache.shiro.authz.annotation.RequiresPermissions'.(ëÇ«º8„¦‚Õè.
+h
+java:S1128	"KRemove this unused import 'org.apache.shiro.authc.AuthenticationException'.(Áöó©8„¦‚Õè.
+l
+java:S1128"ORemove this unused import 'org.springframework.web.bind.annotation.GetMapping'.(‡¡‰Ø8„¦‚Õè.
+Z	java:S1062"9Replace this use of System.out or System.err by a logger.(Æ¬÷İøÿÿÿÿ8à¢‹Õè.
+f
+java:S1128"IRemove this unused import 'org.apache.shiro.authc.UsernamePasswordToken'.(¤éŸª8„¦‚Õè.
+_
+java:S1128"=Remove this unused import 'org.apache.shiro.subject.Subject'.(ÿ­ëêøÿÿÿÿ8„¦‚Õè.
+l
+java:S1128"JRemove this unused import 'org.apache.shiro.authz.AuthorizationException'.(şšò¾ÿÿÿÿÿ8„¦‚Õè.

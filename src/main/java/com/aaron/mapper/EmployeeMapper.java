@@ -14,9 +14,13 @@ import java.util.List;
  */
 @Mapper
 public interface EmployeeMapper {
-    public Employee queryEmp(Integer id);
-    public void addEmp(Employee employee);
-    public void insertBatch(List<Employee> list);
-    public List<Employee> queryEmpList();
-    public int delEmp(Integer id);
+    Employee queryEmp(Integer id);
+    List<Employee> queryEmpList();
+    Employee getUserByName(String name);
+    Employee queryEmpByNameAndPwd(Employee employee);
+    Employee getEmployeeByEmpId(String empId);
+    void addEmp(Employee employee);
+    void insertBatch(List<Employee> list);
+    int delEmp(Integer id);
+
 }

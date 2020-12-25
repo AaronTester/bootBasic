@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,13 +11,15 @@
     <div class="sidebar_blog_1">
         <div class="sidebar-header">
             <div class="logo_section">
-                <a th:href="@{static/index.html}"><img class="logo_icon img-responsive" th:src="@{/static/images/logo/logo_icon.png}" alt="#" /></a>
+                <a th:href="@{static/index.html}"><img class="logo_icon img-responsive"
+                                                       th:src="@{/static/images/logo/logo_icon.png}" alt="#"/></a>
             </div>
         </div>
         <div class="sidebar_user_info">
             <div class="icon_setting"></div>
             <div class="user_profle_side">
-                <div class="user_img"><img class="img-responsive" th:src="@{/static/images/layout_img/user_img.jpg}" alt="#" /></div>
+                <div class="user_img"><img class="img-responsive" th:src="@{/static/images/layout_img/user_img.jpg}"
+                                           alt="#"/></div>
                 <div class="user_info">
                     <h6>John David</h6>
                     <p><span class="online_animation"></span> Online</p>
@@ -25,9 +28,9 @@
         </div>
     </div>
     <div class="sidebar_blog_2">
-        <h4>General</h4>
-        <ul class="list-unstyled components">
-            <li class="active">
+        <h4>菜单</h4>
+        <ul class="list-unstyled components" id="menuId">
+            <!--<li class="active">
                 <a th:href="@{static/dashboard}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
                 <ul class="collapse list-unstyled" id="dashboard">
                     <li>
@@ -81,7 +84,7 @@
             </li>
             <li><a href="map.html"><i class="fa fa-map purple_color2"></i> <span>Map</span></a></li>
             <li><a href="charts.html"><i class="fa fa-bar-chart-o green_color"></i> <span>Charts</span></a></li>
-            <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
+            <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>-->
         </ul>
     </div>
 </nav>
@@ -92,7 +95,7 @@
         <div class="full">
             <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
             <div class="logo_section">
-                <a href="index.html"><img class="img-responsive" th:src="@{/static/images/logo/logo.png}" alt="#" /></a>
+                <a href="index.html"><img class="img-responsive" th:src="@{/static/images/logo/logo.png}" alt="#"/></a>
             </div>
             <div class="right_topbar">
                 <div class="icon_info">
@@ -103,12 +106,15 @@
                     </ul>
                     <ul class="user_profile_dd">
                         <li>
-                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" th:src="@{/static/images/layout_img/user_img.jpg}" alt="#" /><span class="name_user">John David</span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle"
+                                                                                   th:src="@{/static/images/layout_img/user_img.jpg}"
+                                                                                   alt="#"/><span class="name_user">John David</span></a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="profile.html">My Profile</a>
                                 <a class="dropdown-item" href="settings.html">Settings</a>
                                 <a class="dropdown-item" href="help.html">Help</a>
-                                <a class="dropdown-item" th:href="@{/logout}"><span>退出</span> <i class="fa fa-sign-out"></i></a>
+                                <a class="dropdown-item" th:href="@{/logout}"><span>退出</span> <i
+                                        class="fa fa-sign-out"></i></a>
                             </div>
                         </li>
                     </ul>
@@ -118,5 +124,9 @@
     </nav>
 </div>
 <!-- end topbar -->
+<script th:src="@{static/js/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript">
+
+</script>
 </body>
 </html>

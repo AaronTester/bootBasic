@@ -1,0 +1,7 @@
+
+›
+java:S11305"yRemove the declaration of thrown exception 'org.apache.shiro.authc.AuthenticationException' which is a runtime exception.(¡ïË»ùÿÿÿÿ8¾ƒåüç.
+a
+java:S1858C"E"getPassword" returns a string, there's no need to call "toString()".(»©‰V8üÑ‚è.
+E
+java:S1481;"(Remove this unused "pwd" local variable.(ÄÁñ8Í‘¦Êè.
